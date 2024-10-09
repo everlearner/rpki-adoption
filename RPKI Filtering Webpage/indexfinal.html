@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizing ROV Over Time</title>
+  <style>
+    rect {
+      pointer-events: all;
+      
+    }
+
+    .tooltip {
+    position: absolute;
+    padding: 10px;
+    background-color: steelblue;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    display: none;
+    opacity: .75;
+  }
+
+  #scatterDateInput, #scatterUpdateButton {
+            display: none;
+        }
+
+  .chart-container {
+      display: block; /* Default block display stacks elements vertically */
+  }
+  .scatter-container {
+            display: flex; /* Use flexbox to align charts side by side */
+        }
+  .chart {
+      margin-bottom: 5px; /* Add some spacing between the charts */
+  }
+   
+  </style>
+</head>
+
+<body>
+  <div class="chart-container">
+    <div id="line-chart" class="chart"></div>
+    <div class="scatter-container">
+      <div id="scatter-chartipv4" class="chart"></div>
+      <div id="scatter-chartipv6" class="chart"></div>
+    </div>
+    <div id="invalids-asn-chart" class="chart"></div>
+  </div>
+  <div id="scatter-container"></div>
+  <div id="tooltip"></div>
+  <button id="scatterUpdateButton">Update Scatter Chart</button>
+  <input type="text" id="scatterDateInput">
+
+  <!-- Include the D3.js library -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- Include your custom script file -->
+  <script src="scriptstart.js"></script>
+  <script src="scatter_plot_script.js"></script>
+  <!-- <script src="invalids_per_asn.js"></script> -->
+</body>
+
+</html>
